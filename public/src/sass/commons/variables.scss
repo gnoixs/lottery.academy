@@ -1,0 +1,24 @@
+$baseFont      :   	12;
+$baseWidth     :    1000;
+$colorBlue     :   	#3f5ef5;
+$colorGreen    : 	#88e7c4;
+$colorDark     :    #2d385a;
+$colorWhite	   :    #ffffff;
+
+@mixin relative(){
+	display   :     block; 
+	position  : 	relative;
+	left      : 	0;
+	top  	  : 	0;
+	&:after{
+		content:'';
+		display: block;
+		width:0;
+		height: 0;
+	}
+}
+
+@mixin center($left){
+	left:50%;
+	margin-left:$left+px;
+}

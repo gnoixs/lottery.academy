@@ -1,0 +1,367 @@
+@import './../commons/variables';
+.LA-out-content{
+	width:100%;
+	height:945px;
+	z-index:2;
+	.LA-in-content{
+		width:980px;
+		height: auto;
+		position: relative;
+		@include center(-490);
+		.LA-top-nav{
+			width:980px;
+			height: 80px;
+			position:relative;
+			background:url(../imgs/icons/bg-cqssc-nav.png) no-repeat center bottom;
+			overflow: hidden;
+			.LA-logo-cqssc{
+				width:135px;
+				height: 27px;
+				background: url(../imgs/icons/bg-logo-cqssc.png) no-repeat center center;
+				position:absolute;
+				left:25px;
+				top: 25px;
+				text-indent: -9999px;
+			}
+			.LA-lottery-info{
+				width:110px;
+				height: 80px;
+				position:absolute;
+				left:170px;
+				top:0;
+				padding-top:10px;
+				padding-left:20px;
+				h3{
+					font-size:12px;
+					font-family: Tahoma;
+					color:#acb7ee;
+					strong{
+						font-weight: bold;
+						color:#ffffff;
+					}
+					span{
+						font-weight: bold;
+					}
+				}
+			}
+			.LA-time{
+				width:160px;
+				height: 80px;
+				position:absolute;
+				left:290px;
+				top:0;
+				ol{
+					width:150px;
+					height:42px;
+					position:absolute;
+					left:10px;
+					top:19px;
+					background:url(../imgs/icons/bg-nav-time.png) no-repeat center center;
+					li{
+						width:30px;
+						height: 42px;
+						position:absolute;
+						top:0;
+						font-size:34px;
+						font-family: Arial;
+						font-weight: bold;
+						line-height: 42px;
+						text-align: center;
+						color:#ffffff;
+						&.one{
+							left:0;
+						}
+						&.two{
+							left:36px;
+						}
+						&.three{
+							left:85px;
+						}
+						&.four{
+							left:120px;
+						}
+					}
+				}
+			}
+			.LA-lottery-current{
+				width:100px;
+				height: 80px;
+				position:absolute;
+				left:530px;
+				top:0;
+				padding-top: 20px;
+				h3{
+					font-family: SimSun;
+					font-size: 12px;
+					color:#acb7ee;
+					span{
+						color:#ffffff;
+						font-weight: bold;
+						letter-spacing: 2px;
+					}
+				}
+			}
+			ul{
+				width:230px;
+				height: 40px;
+				position:absolute;
+				right: 120px;
+				top:20px;
+				li{
+					width:40px;
+					height: 40px;
+					float: left;
+					background: url(../imgs/icons/bg-nav-ball.png) no-repeat center center;
+					color:#484646;
+					font-family:Minion Pro;
+					font-weight: bold;
+					line-height:40px;
+					text-align: center;
+					font-size:25px;
+					margin:0 3px;
+				}
+			}
+			h4{
+				width:90px;
+				height: 80px;
+				background: url(../imgs/icons/icon-nav-calender.png) no-repeat left center;
+				text-indent:22px;
+				font-family: SimSun;
+				font-size: 12px;
+				color:#acb7ee;
+				line-height: 80px;
+				position:absolute;
+				right: 0;
+				top:0;
+			}
+		}
+		.LA-in-main{
+			width:980px;
+			height: 533px;
+			background-color:#f2f2f2;
+			position:relative;
+			top:15px;
+			background: url(../imgs/icons/bg-main-bottom.png) no-repeat center bottom;
+			.LA-main-nav{
+				width:979px;
+				height: 38px;
+				position:absolute;
+				background: url(../imgs/icons/bg-main-nav.png) repeat-x center left;
+				border-top-left-radius:5px;
+				border-top-right-radius:5px;
+				ul{
+					width:100%;
+					height: 38px;
+					overflow: hidden;
+					position:absolute;
+					li{
+						float: left;
+						color:#ffffff;
+						font-family: Lantinghei SC;
+						font-size:15px;
+						background:url(../imgs/icons/bg-border-right.png) no-repeat center right;
+						line-height: 38px;
+						text-align: center;
+						padding:0 16px;
+						font-weight: bold;
+						&:hover{
+							background:url(../imgs/icons/bg-main-nav-hover.png) repeat-x center left;
+						}
+						&.radius{
+							border-top-left-radius:5px;
+						}
+						&.active{
+							background:url(../imgs/icons/bg-main-nav-hover.png) repeat-x center left;
+						}
+						a{
+							color:#ffffff;
+							display: block;
+						}
+					}
+				}
+			}
+			.LA-main-content{
+				width:979px;
+				height: 448px;
+				background:url(../imgs/icons/bg-main.png) repeat-x left top;
+				position:absolute;
+				top:38px;
+				ol{
+					width:660px;
+					height: 35px;
+					position:absolute;
+					left:0;
+					top:20px;
+					overflow: hidden;
+					padding-top:10px;
+					li{
+						width:164px;
+						height: 20px;
+						text-align: center;
+						border-right:1px solid #9fadd7;
+						float:left;
+						line-height: 20px;
+						color:#7688bc;
+						overflow: visible;
+						a{	
+							font-family: Microsoft YaHei;
+							font-size: 15px;
+							display: block;
+						    width: 135px;
+						    border-radius: 5px;
+						    margin-left: 15px;
+						    height: 30px;
+						    margin-top: -5px;
+						    line-height: 30px;
+						    &:hover{
+						    	background: #759aec;
+						    	color:#ffffff;
+						    }
+						    &.active{
+						    	background: #759aec;
+						    	color:#ffffff;
+						    }
+						}
+						&.last{
+							border:none;
+						}
+					}	
+				}
+				table{
+					width:832px;
+					height: 280px;
+					position:absolute;
+					left:73px;
+					top:80px;
+					tr{
+						width:832px;
+						height: 40px;
+						td{
+							font-family: Microsoft YaHei;
+							font-size:12px;
+							line-height: 40px;
+							color:#7c7c7c;
+							border-bottom: 1px dotted #ccced0;
+						}
+					}
+				}
+				.LA-main-pagination{
+					width:832px;
+					height: 40px;
+					position:absolute;
+					left: 73px;
+					bottom:10px;
+					text-align: center;
+					overflow: hidden;
+					ul{
+						height: 40px;
+						margin:0 auto;
+						li,span{
+							display: inline;
+							a{
+								text-decoration: underline;
+								line-height: 40px;
+								color:#2d385a;
+								padding:0 5px;
+								font-size:14px;
+								&.active{
+									text-decoration: none;
+									color:#00a4cd;
+								}
+							}
+						}
+					}
+				}
+			}
+			.LA-main-detail{
+				width:979px;
+				height: 448px;
+				background:url(../imgs/icons/bg-main.png) repeat-x left top;
+				position:absolute;
+				top:38px;
+				h2{
+					height: 40px;
+					text-align: center;
+					font-family: Microsoft YaHei;
+					font-size:15px;
+					color:#5e73b1;
+					line-height: 60px;
+				}
+				ol{
+					width:852px;
+					height: 40px;
+					margin:0 auto;
+					overflow: hidden;
+					li{
+						display: inline;
+						margin-right:40px;
+						color:#7c7c7c;
+						font-family: Microsoft YaHei;
+						font-size:12px;
+						line-height: 40px;
+					}
+				}
+				.LA-list-box{
+					width:852px;
+					height: 230px;
+					border:2px solid #dcdcdc;
+					margin:0 auto;
+					margin-top:10px;
+					overflow: auto;
+					h3,li{
+						font-family: Microsoft YaHei;
+						font-size:12px;
+						color:#7c7c7c;
+						padding-left:20px;
+						line-height: 25px;
+					}
+					h3{
+						margin-top:10px;
+					}
+				}
+				p,div{
+					width:852px;
+					margin:0 auto;
+					margin-top: 10px;
+					font-size:12px;
+					font-family: Microsoft YaHei;
+					color:#7c7c7c;
+				}
+				div{
+					margin-top: 5px;
+					span{
+					    margin-left: -4px;
+					    padding: 0 2px;
+					}
+					input{
+						background:url(../imgs/icons/bg-btn-share.png) no-repeat center center;
+						border:none;
+						outline: none;
+						position:relative;
+						border-radius:10px;
+						color:#ffffff;
+						font-size:12px;
+						text-align: center;
+						display: none;
+					}
+				}
+				button{
+					width:115px;
+					height: 32px;
+					background:url(../imgs/icons/bg-btn-share.png) no-repeat center center;
+					border:none;
+					outline: none;
+					margin:0 auto;
+					margin-top:10px;
+					display: block;
+					font-family: SimSun;
+					font-size:15px;
+					text-align:center;
+					line-height: 32px;
+					font-weight: bold;
+					color:#ffffff;
+				}
+			}
+		}
+	}
+}

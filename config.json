@@ -1,0 +1,8 @@
+{
+	"compiles":{
+		"css":{
+			"src":"public/src/*/*.sass",
+			"dest":"public/dest/commons",
+		},
+	}
+}

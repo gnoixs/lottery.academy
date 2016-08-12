@@ -1,0 +1,215 @@
+@import './../commons/variables';
+.LA-out-content{
+	.LA-content-top{
+		width:1000px;
+		height: 240px;
+		position: relative;
+		@include center(-500);
+		overflow: hidden;
+		h2{
+			text-align:center;
+			font-size:51px;
+			color:$colorWhite;
+			padding-top:35px;
+			line-height: 45px;
+			strong{
+				font-weight: bold;
+				font-size:53px;
+			}
+		}
+		ol{
+			width:600px;
+			height: 50px;
+			position:absolute;
+			@include center(-300);
+			color:$colorWhite;
+			li{
+				font-size:18px;
+				width:180px;
+				float: left;
+				margin:0 10px;
+				padding-top:40px;
+				text-align: center;
+			}
+		}
+
+	}
+	.LA-content-main{
+		width : $baseWidth+px;
+		height: 700px;
+		@include relative();
+		@include center(-500);
+		.LA-center{
+			width:300px;
+			height: 240px;
+			position:absolute;
+			@include center(-150);
+			margin-top:-120px;
+			top:50%;
+			h2{
+				text-align: center;
+				color:$colorWhite;
+				font-size:40px;
+				margin-top:15px;
+				line-height: 35px;
+				strong{
+					font-size:41px;
+					font-weight: bold;
+				}
+			}
+			p{
+				width:55px;
+				height: 88px;
+				background:url(../imgs/icons/icon-ques.png) no-repeat center center;
+				position:absolute;
+				@include center(-27);
+				bottom:20px;
+				text-indent: -9999px;
+			}
+		}
+		ul{
+
+			li{
+				width:172px;
+				height: 172px;
+				position:absolute;
+				z-index: 2;
+				color:$colorWhite;
+				text-align:center;
+				h3{
+					font-family: Lantinghei SC;
+					font-size:22px;
+					line-height: 30px;
+					&.first{
+						margin-top:40px;
+					}
+				}
+				
+				p{
+					font-family: Microsoft Jhen;
+					font-size:16px;
+					line-height: 22px;
+				}
+				&.one{
+					top:15px;
+					left:445px;
+					&:hover{
+						cursor: pointer;
+						h3{
+							font-size:24px;
+						}
+						p{
+							font-size:18px;
+						}
+					}
+				}
+				&.two{
+					top:95px;
+					left:620px;
+					&:hover{
+						cursor: pointer;
+						h3{
+							font-size:24px;
+						}
+						p{
+							font-size:18px;
+						}
+					}
+				}
+				&.three{
+					top:280px;
+					left:670px;
+					&:hover{
+						cursor: pointer;
+						h3{
+							font-size:24px;
+						}
+						p{
+							font-size:18px;
+						}
+					}
+				}
+				&.four{
+					top:440px;
+					left:570px;
+					&:hover{
+						cursor: pointer;
+						h3{
+							font-size:24px;
+						}
+						p{
+							font-size:18px;
+						}
+					}
+				}
+				&.five{
+					top:495px;
+					left:385px;
+					&:hover{
+						cursor: pointer;
+						h3{
+							font-size:24px;
+						}
+						p{
+							font-size:18px;
+						}
+					}
+				}
+				&.six{
+					top:390px;
+					left:215px;
+					&:hover{
+						cursor: pointer;
+						h3{
+							font-size:24px;
+						}
+						p{
+							font-size:18px;
+						}
+					}
+				}
+				&.seven{
+					top:210px;
+					left:150px;
+					&:hover{
+						cursor: pointer;
+						h3{
+							font-size:24px;
+						}
+						p{
+							font-size:18px;
+						}
+					}
+				}
+				&.eight{
+					top:50px;
+					left:255px;
+					&:hover{
+						cursor: pointer;
+						h3{
+							font-size:24px;
+						}
+						p{
+							font-size:18px;
+						}
+					}
+				}
+				&.odd{
+					background:url(../imgs/icons/icon-circle-blank.png) no-repeat center center;
+				}
+				&.even{
+					background:url(../imgs/icons/icon-circle-fill.png) no-repeat center center;
+					h3,p{
+						color:#5d97e0;
+					}
+				}
+			}
+		}
+	}
+}
+#canv{
+	position:absolute;
+	left:0;
+	top:0;
+	z-index:1;
+}

@@ -1,0 +1,21 @@
+{
+  "name": "lottery.academy",
+  "description": "",
+  "main": "",
+  "authors": [
+    "feaco <pheaco@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "1.8.3"
+  }
+}

@@ -1,0 +1,110 @@
+@import './variables';
+
+
+html {
+	height: auto;
+	background: url(../imgs/icons/bg.jpg) no-repeat center center;
+	cursor: default;
+	body {
+		width     : 	100%;
+		margin    : 	0;
+		overflow-x:hidden;
+		@include relative();
+	}
+
+}
+
+.LA-container{
+	width     :  100%;
+	height    :  auto;
+	position :   relative;
+	background: url(../imgs/icons/bg.jpg) no-repeat center center;
+}
+
+.LA-out-nav{
+	width     	:  	100%;
+	height    	: 	70px;
+	@include relative();
+	background  :   $colorDark;
+	overflow    :   hidden;
+	.LA-in-nav{
+		width   :    $baseWidth+px;
+		height  : 	 70px;
+		overflow: 	 hidden;
+		position:    absolute;
+		left    :    50%;
+		margin-left: -$baseWidth/2+px; 
+		.LA-logo{
+			width:222px;
+			height: 41px;
+			position: absolute;
+			left:0;
+			top:15px;
+			background:url(./../imgs/icons/bg-logo.png) no-repeat center center;
+			text-indent: -9999px;
+		}
+		.LA-nav{
+			width:660px;
+			height: 70px;
+			position:absolute;
+			z-index: 3;
+			right:0;
+			li{
+				width:110px;
+				height: 70px;
+				overflow: hidden;
+				float: left;
+				a{
+					width: 100px;
+					height:67px;
+					line-height: 70px;
+					text-align: center;
+					display: block;
+					float: left;
+					font-size:16px;
+					color:#ffffff;
+					margin:0 5px;
+					&.active{
+						border-bottom:3px solid #3ad8e3;
+					}
+					&:hover{
+						border-bottom:3px solid #3ad8e3;
+					}
+				}
+			}
+		}
+	}
+}
+
+.LA-out-content{
+	width     	:  	100%;
+	height      :   auto;
+	@include relative();
+	overflow    :   hidden;
+}
+.LA-out-footer{
+	width     	:  	100%;
+	height    	: 	60px;
+	@include relative();
+	background  :   $colorDark;
+	overflow    :   hidden;
+	.LA-in-footer{
+		width:1000px;
+		height: 60px;
+		position: absolute;
+		@include center(-500);
+		overflow: hidden;
+		p{
+			text-align: center;
+			line-height: 60px;
+			font-size:12px;  
+			color:$colorWhite;
+		}
+	}
+}
+#canv{
+	position:absolute;
+	left:0;
+	top:0;
+	z-index:1;
+}
