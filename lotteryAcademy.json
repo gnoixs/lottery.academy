@@ -1,0 +1,196 @@
+{
+    "nextPhase":"20160820-024",  //要开奖的期数,     类型：string，-前面的是日期,-后面的是下一期开奖的期数
+    "nextTime":600,              //距离下期开奖的时间,类型：number,02:00-08:00传 null
+    "timeInterval":10,           //下期开奖的时间间隔,类型：number,  02:00-08:00 是0,08:00-22:00是10,22:00-02:00是5，有且只有这三个数
+    "prevPhase":"20160820-024",  //上期开奖期数类型：string，-前面的是日期,-后面的是上一期开奖的期数
+    "phaseNumber":"05287",       //上一期开奖号码类型：string,五位
+    "allPlans":{                 //全部计划
+        "location":{
+            "planName":"定位胆",      //类型名称,string,
+            "dataList":[             //这里是需要push数据进来
+                {
+                    "bets":24,               //注数,number
+                    "typeName":"大宝剑十位",  //类型名称,string
+                    "planed":91,             //计划连中,number
+                    "max":19,                //最大连中,number
+                    "current":19,            //当前连中,number
+                    "popularity":20000,      //人气，number
+                    "currentPlan":"00 01 02 03 04 05",  //本期计划，string，注意分隔符
+                    "history":[                         //历史计划
+                        "第031-032 ★风雷后二 032期 开52463 中", //string
+                        "第031-032 ★风雷后二 032期 开52463 中",
+                        "第031-032 ★风雷后二 032期 开52463 中",
+                        "第031-032 ★风雷后二 032期 开52463 中"
+                    ]
+                }
+            ]
+        },
+        "start2single":{
+            "planName":"二星单式",      //类型名称,string,
+            "dataList":[             //这里是需要push数据进来
+                {
+                    "bets":24,               //注数,number
+                    "typeName":"大宝剑十位",  //类型名称,string
+                    "planed":91,             //计划连中,number
+                    "max":19,                //最大连中,number
+                    "current":19,            //当前连中,number
+                    "popularity":20000,      //人气，number
+                    "currentPlan":"00 01 02 03 04 05",  //本期计划，string，注意分隔符
+                    "history":[                         //历史计划
+                        "第031-032 ★风雷后二 032期 开52463 中", //string
+                        "第031-032 ★风雷后二 032期 开52463 中",
+                        "第031-032 ★风雷后二 032期 开52463 中",
+                        "第031-032 ★风雷后二 032期 开52463 中"
+                    ]
+                }
+            ]
+        },
+        "start2double":{
+            "planName":"二星复式",      //类型名称,string,
+            "dataList":[             //这里是需要push数据进来
+                {
+                    "bets":24,               //注数,number
+                    "typeName":"大宝剑十位",  //类型名称,string
+                    "planed":91,             //计划连中,number
+                    "max":19,                //最大连中,number
+                    "current":19,            //当前连中,number
+                    "popularity":20000,      //人气，number
+                    "currentPlan":"00 01 02 03 04 05",  //本期计划，string，注意分隔符
+                    "history":[                         //历史计划
+                        "第031-032 ★风雷后二 032期 开52463 中", //string
+                        "第031-032 ★风雷后二 032期 开52463 中",
+                        "第031-032 ★风雷后二 032期 开52463 中",
+                        "第031-032 ★风雷后二 032期 开52463 中"
+                    ]
+                }
+            ]
+        },
+        "start3single":{
+            "planName":"三星单式",      //类型名称,string,
+            "dataList":[             //这里是需要push数据进来
+                {
+                    "bets":24,               //注数,number
+                    "typeName":"大宝剑十位",  //类型名称,string
+                    "planed":91,             //计划连中,number
+                    "max":19,                //最大连中,number
+                    "current":19,            //当前连中,number
+                    "popularity":20000,      //人气，number
+                    "currentPlan":"00 01 02 03 04 05",  //本期计划，string，注意分隔符
+                    "history":[                         //历史计划
+                        "第031-032 ★风雷后二 032期 开52463 中", //string
+                        "第031-032 ★风雷后二 032期 开52463 中",
+                        "第031-032 ★风雷后二 032期 开52463 中",
+                        "第031-032 ★风雷后二 032期 开52463 中"
+                    ]
+                }
+            ]
+        },
+        "start3double":{
+            "planName":"三星复式",      //类型名称,string,
+            "dataList":[             //这里是需要push数据进来
+                {
+                    "bets":24,               //注数,number
+                    "typeName":"大宝剑十位",  //类型名称,string
+                    "planed":91,             //计划连中,number
+                    "max":19,                //最大连中,number
+                    "current":19,            //当前连中,number
+                    "popularity":20000,      //人气，number
+                    "currentPlan":"00 01 02 03 04 05",  //本期计划，string，注意分隔符
+                    "history":[                         //历史计划
+                        "第031-032 ★风雷后二 032期 开52463 中", //string
+                        "第031-032 ★风雷后二 032期 开52463 中",
+                        "第031-032 ★风雷后二 032期 开52463 中",
+                        "第031-032 ★风雷后二 032期 开52463 中"
+                    ]
+                }
+            ]
+        },
+        "start4double":{
+            "planName":"四星复式",      //类型名称,string,
+            "dataList":[             //这里是需要push数据进来
+                {
+                    "bets":24,               //注数,number
+                    "typeName":"大宝剑十位",  //类型名称,string
+                    "planed":91,             //计划连中,number
+                    "max":19,                //最大连中,number
+                    "current":19,            //当前连中,number
+                    "popularity":20000,      //人气，number
+                    "currentPlan":"00 01 02 03 04 05",  //本期计划，string，注意分隔符
+                    "history":[                         //历史计划
+                        "第031-032 ★风雷后二 032期 开52463 中", //string
+                        "第031-032 ★风雷后二 032期 开52463 中",
+                        "第031-032 ★风雷后二 032期 开52463 中",
+                        "第031-032 ★风雷后二 032期 开52463 中"
+                    ]
+                }
+            ]
+        },
+        "start5double":{
+            "planName":"五星复式",      //类型名称,string,
+            "dataList":[             //这里是需要push数据进来
+                {
+                    "bets":24,               //注数,number
+                    "typeName":"大宝剑十位",  //类型名称,string
+                    "planed":91,             //计划连中,number
+                    "max":19,                //最大连中,number
+                    "current":19,            //当前连中,number
+                    "popularity":20000,      //人气，number
+                    "currentPlan":"00 01 02 03 04 05",  //本期计划，string，注意分隔符
+                    "history":[                         //历史计划
+                        "第031-032 ★风雷后二 032期 开52463 中", //string
+                        "第031-032 ★风雷后二 032期 开52463 中",
+                        "第031-032 ★风雷后二 032期 开52463 中",
+                        "第031-032 ★风雷后二 032期 开52463 中"
+                    ]
+                }
+            ]
+        },
+        "combine3":{
+            "planName":"组三",      //类型名称,string,
+            "dataList":[             //这里是需要push数据进来
+                {
+                    "bets":24,               //注数,number
+                    "typeName":"大宝剑十位",  //类型名称,string
+                    "planed":91,             //计划连中,number
+                    "max":19,                //最大连中,number
+                    "current":19,            //当前连中,number
+                    "popularity":20000,      //人气，number
+                    "currentPlan":"00 01 02 03 04 05",  //本期计划，string，注意分隔符
+                    "history":[                         //历史计划
+                        "第031-032 ★风雷后二 032期 开52463 中", //string
+                        "第031-032 ★风雷后二 032期 开52463 中",
+                        "第031-032 ★风雷后二 032期 开52463 中",
+                        "第031-032 ★风雷后二 032期 开52463 中"
+                    ]
+                }
+            ]
+        },
+        "combine6":{
+            "planName":"组六",      //类型名称,string,
+            "dataList":[             //这里是需要push数据进来
+                {
+                    "bets":24,               //注数,number
+                    "typeName":"大宝剑十位",  //类型名称,string
+                    "planed":91,             //计划连中,number
+                    "max":19,                //最大连中,number
+                    "current":19,            //当前连中,number
+                    "popularity":20000,      //人气，number
+                    "currentPlan":"00 01 02 03 04 05",  //本期计划，string，注意分隔符
+                    "history":[                         //历史计划
+                        "第031-032 ★风雷后二 032期 开52463 中", //string
+                        "第031-032 ★风雷后二 032期 开52463 中",
+                        "第031-032 ★风雷后二 032期 开52463 中",
+                        "第031-032 ★风雷后二 032期 开52463 中"
+                    ]
+                }
+            ]
+        }
+    }
+}
+
+//另外有一个后端推送数据，即开奖后推送开奖号码和期数及服务端的时间到前端展示
+/*{
+    "prevPhase":"20160820-024",
+    "phaseNumber":"05287",
+    "data":'2016/08/20 12:00:00'
+}*/

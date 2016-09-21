@@ -13,8 +13,8 @@
 			<div class="LA-in-nav">
 				<h1><a class="LA-logo" href="#">彩票研究学院</a></h1>
 				<ul class="LA-nav">
-					<li><a href="#">首页</a></li>
-					<li><a href="#" class="active">时时彩计划</a></li>
+					<li><a href="/sscplans.html"  class="active">首页</a></li>
+					<li><a href="/cqssc.html?type=1">时时彩计划</a></li>
 					<li><a href="#">11选5计划</a></li>
 					<li><a href="#">快三计划</a></li>
 					<li><a href="#">PK10计划</a></li>
@@ -113,8 +113,36 @@
 		//外层导航
 		$(outerNav).on('click',function(evt){
 			var target = evt.target || evt.srcElement;
+			if($(target).attr('href') == '#'){
+				alert('敬请期待');
+				return;
+			}
 			$(target).addClass('active').parent().siblings().find('a').removeClass('active');
 		});
+
+		$('.LA-content-main ul li').on('click',function(){
+			var _class = $(this).attr('class').split(' ')[0];
+			if(_class == 'one'){
+				location.href = 'cqssc.html?type=1';
+			}else if(_class == 'three'){
+				location.href = 'cqssc.html?type=3';
+			}else if(_class == 'five'){
+				location.href = 'cqssc.html?type=5';
+			}else if(_class == 'seven'){
+				location.href = 'cqssc.html?type=9';
+			}else{
+				if(_class == 'two'){
+					location.href = 'cqssc.html?type=10#2';
+				}else if(_class == 'four'){
+					location.href = 'cqssc.html?type=10#4';
+				}else if(_class == 'six'){
+					location.href = 'cqssc.html?type=10#3';
+				}else if(_class == 'eight'){
+					location.href = 'cqssc.html?type=10#1';
+				}
+				
+			}
+		})
 	</script>
 </body>
 </html>

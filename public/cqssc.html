@@ -6,15 +6,15 @@
 	<link rel="stylesheet" type="text/css" href="./dest/css/commons.css"/>
 	<link rel="stylesheet" type="text/css" href="./dest/css/cqssc.css"/>
 </head>
-<body>
+<body ng-app='lottery' ng-controller="main">
 	<div class="LA-container">
 		<!--导航部分-->
 		<div class="LA-out-nav">
 			<div class="LA-in-nav">
-				<h1><a class="LA-logo" href="#">彩票研究学院</a></h1>
+				<h1><a class="LA-logo" href="/sscplans.html">彩票研究学院</a></h1>
 				<ul class="LA-nav">
-					<li><a href="#">首页</a></li>
-					<li><a href="#" class="active">时时彩计划</a></li>
+					<li><a href="/sscplans.html">首页</a></li>
+					<li><a href="/cqssc.html?type=1" class="active">时时彩计划</a></li>
 					<li><a href="#">11选5计划</a></li>
 					<li><a href="#">快三计划</a></li>
 					<li><a href="#">PK10计划</a></li>
@@ -29,120 +29,100 @@
 				<div class="LA-top-nav">
 					<h2 class="LA-logo-cqssc">重庆时时彩</h2>
 					<div class="LA-lottery-info">
-						<h3>第<span>16</span>/<span>024</span>期</h3>
-						<h3><strong>2016</strong><strong>/</strong><strong>2</strong><strong>/</strong><strong>27</strong>开奖</h3>
+						<h3 style="margin-top:8px;">第<strong ng-bind="+term+1"></strong>期</h3>
 						<h3>离投注截止还有</h3>
 					</div>
 					<div class="LA-time">
 						<ol>
-							<li class="one">6</li>
-							<li class="two">3</li>
-							<li class="three">3</li>
-							<li class="four">3</li>
+							<li class="one">-</li>
+							<li class="two">-</li>
+							<li class="three">-</li>
+							<li class="four">-</li>
 						</ol>
 					</div>
-					<div class="LA-lottery-current">
-						<h3>第<span>16</span><span>/</span><span>024</span>期</h3>
-						<h3>开奖号码&gt;</h3>
+					<div class="LA-lottery-current" style="left:515px;">
+						<h3>第<span ng-bind="+prvTerm+1"></span>期</h3>
+						<h3><a href="http://data.shishicai.cn/cqssc/haoma/" style="color:#acb7ee;" target="_blank">开奖号码&gt;</a></h3>
 					</div>
 					<ul>
-						<li>5</li>
-						<li>8</li>
-						<li>8</li>
-						<li>8</li>
-						<li>8</li>
+						<li ng-bind="number.substr(0,1)"></li>
+						<li ng-bind="number.substr(1,1)"></li>
+						<li ng-bind="number.substr(2,1)"></li>
+						<li ng-bind="number.substr(3,1)"></li>
+						<li ng-bind="number.substr(4,1)"></li>
 					</ul>
-					<h4>历史开奖</h4>
+					<h4><a href="http://data.shishicai.cn/cqssc/haoma/" style="color:white;" target="_blank">历史开奖</a></h4>
 				</div>
 			<!--内容展示区-->	
 				<div class="LA-in-main">
 					<!--inner navgation-->
 					<div class="LA-main-nav">
 						<ul>
-							<li class="radius active"><a href="#">定位胆</a></li>
-							<li><a href="#">二星单式</a></li>
-							<li><a href="#">二星复式</a></li>
-							<li><a href="#">三星单式</a></li>
-							<li><a href="#">三星复式</a></li>
-							<li><a href="#">四星复式</a></li>
-							<li><a href="#">五星复式</a></li>
-							<li><a href="#">组三</a></li>
-							<li><a href="#">组六</a></li>
-							<li><a href="#">全部计划</a></li>
+							<li class="radius active"><a href="#" ng-click="changeNav(1)">定位胆</a></li>
+							<li><a href="#" ng-click='changeNav(2)'>二星单式</a></li>
+							<li><a href="#" ng-click='changeNav(3)'>二星复式</a></li>
+							<li><a href="#" ng-click='changeNav(4)'>三星单式</a></li>
+							<li><a href="#" ng-click='changeNav(5)'>三星复式</a></li>
+							<li><a href="#" ng-click='changeNav(6)'>四星复式</a></li>
+							<li><a href="#" ng-click='changeNav(7)'>五星复式</a></li>
+							<li><a href="#" ng-click='changeNav(9)'>组三</a></li>
+							<li><a href="#" ng-click='changeNav(8)'>组六</a></li>
+							<li><a href="#" ng-click='changeNav(0)'>全部计划</a></li>
 						</ul>
 					</div>
 					<!--列表-->
 					<div class="LA-main-content">
 						<ol>
-							<li><a href="#" class="active">计划连中期数排序</a></li>
-							<li><a href="#">当日最大连中排序</a></li>
-							<li><a href="#">当前连中排序</a></li>
-							<li class="last"><a href="#">人气最旺排序</a></li>
+							<li ng-click='changeNav(1,true)'><a href="#" class="active">计划连中期数排序</a></li>
+							<li ng-click='changeNav(2,true)'><a href="#">当日最大连中排序</a></li>
+							<li ng-click='changeNav(3,true)'><a href="#">当前连中排序</a></li>
+							<li class="last" ng-click='changeNav(4,true)'><a href="#">人气最旺排序</a></li>
 						</ol>
-						<table>
-							<tr>
-								<td>【定位胆】【5注】【3期】大宝剑十位</td>
-								<td>计划连中 91 期</td>
-								<td>最大连中 19期</td>
-								<td>当前连中 19期</td>
-								<td>人气8000次</td>
-							</tr>
-							<tr>
-								<td>【定位胆】【5注】【3期】大宝剑十位</td>
-								<td>计划连中 91 期</td>
-								<td>最大连中 19期</td>
-								<td>当前连中 19期</td>
-								<td>人气8000次</td>
-							</tr>
-							<tr>
-								<td>【定位胆】【5注】【3期】大宝剑十位</td>
-								<td>计划连中 91 期</td>
-								<td>最大连中 19期</td>
-								<td>当前连中 19期</td>
-								<td>人气8000次</td>
-							</tr>
-							<tr>
-								<td>【定位胆】【5注】【3期】大宝剑十位</td>
-								<td>计划连中 91 期</td>
-								<td>最大连中 19期</td>
-								<td>当前连中 19期</td>
-								<td>人气8000次</td>
-							</tr>
-							<tr>
-								<td>【定位胆】【5注】【3期】大宝剑十位</td>
-								<td>计划连中 91 期</td>
-								<td>最大连中 19期</td>
-								<td>当前连中 19期</td>
-								<td>人气8000次</td>
-							</tr>
-							<tr>
-								<td>【定位胆】【5注】【3期】大宝剑十位</td>
-								<td>计划连中 91 期</td>
-								<td>最大连中 19期</td>
-								<td>当前连中 19期</td>
-								<td>人气8000次</td>
-							</tr>
-							<tr>
-								<td>【定位胆】【5注】【3期】大宝剑十位</td>
-								<td>计划连中 91 期</td>
-								<td>最大连中 19期</td>
-								<td>当前连中 19期</td>
-								<td>人气8000次</td>
+						<table border='0' cellspacing="0" cellpadding="0">
+							<tr ng-repeat="item in list1.Data" ng-click="showDetail(item)">
+								<td ng-bind="item.DisplayName">{{}}</td>
+								<td>计划连中 <span ng-bind="item.ConWinnerCount"></span> 期</td>
+								<td>最大连中 <span ng-bind="item.MaxConWinnerCount"></span> 期</td>
+								<td>当前连中 <span ng-bind="item.CurrentConWinnerCount"></span> 期</td>
+								<td>人气 <span ng-bind="item.ClickCount"></span> 次</td>
 							</tr>
 						</table>
 						<div class="LA-main-pagination">
 							<ul>
-								<span><a href="#" id="prev">上一页</a></span>
-								<li><a title="0" href="#" class="active">1</a></li>
-								<li><a title="1" href="#">2</a></li>
-								<li><a title="2" href="#">3</a></li>
-								<li><a title="3" href="#">4</a></li>
-								<li><a title="4" href="#">5</a></li>
-								<li><a title="5" href="#">6</a></li>
-								<li><a title="6" href="#">7</a></li>
-								<span><a href="#" id="next">下一页</a></span>
+								<span ng-click="changeNav(0,'prev')"><a href="#" id="prev">上一页</a></span>
+								<li ng-repeat="page in pages|page:num" ng-click='changeNav($index,"page")'>
+									<a title="0" href="#" ng-class="{active:$index==0&&flag}" ng-bind="page+1"></a>
+								</li>
+								<span ng-click="changeNav(0,'next')"><a href="#" id="next">下一页</a></span>
 							</ul>
 						</div>
+					</div>
+
+					
+					<!--详情页-->
+					<div class="LA-main-detail" ng-class="{show:isDetail}">
+						<h2>{{result.Name}}{{result.ModeValue}}</h2>
+						<ol>
+							<li>计划类型：<span>{{result.TypeValue}}</span></li>
+							<li>计划注数：<span>{{result.BetNumber}}注</span></li>
+							<li>有效期数：<span>{{result.UsableCount}}期</span></li>
+							<li>连中期数：<span>{{result.ConWinnerCount}}期</span></li>
+							<li>最大连中：<span>{{result.MaxConWinnerCount}}期</span></li>
+							<li>人气：<span>{{result.ClickCount}}</span></li>
+						</ol>
+						<div class="LA-list-box">
+							<h3>历史计划：</h3>
+							<ul>
+								<li ng-repeat="item in result.Items">{{item.DisplayName}}</li>
+							</ul>
+						</div>
+						<p>本期计划：</p>
+						<div id="plans" style="max-height: 205px; overflow: auto; padding-left:5px; padding-bottom: 10px;">
+							<span ng-repeat="bet in result.CurrentResult.BetsNumber track by $index">{{bet}} </span>
+							<input type="button" id="part-copy" value="复制"/>
+						</div>
+						<textarea id="copy" value="你好" style="position:absolute;z-index: -2; left:-9999px;"></textarea>
+						<button id="share" data-copytarget="#copy">分享计划</button>
 					</div>
 				</div>
 			</div>
@@ -158,7 +138,8 @@
 	<canvas id="canv" width="733" height="1070"></canvas>
 	
 	<script type="text/javascript" src='./libs/jquery/jquery.min.js'></script>
-		
+	<script type="text/javascript" src='./libs/angular/angular.js'></script>
+	<script type="text/javascript" src='./libs/angular-resource/angular-resource.js'></script>
 	<!--[if gte IE 9]> 
 		<script type="text/javascript" id="animate" src='./dest/scripts/commons.js'></script>	
 	<![endif]-->
@@ -166,35 +147,290 @@
 	<!--[if !IE]><!-->
 	 	<script type="text/javascript" id="animate" src='./dest/scripts/commons.js'></script>
 	<!--<![endif]-->
+	
+		
 
 	<script type="text/javascript">
+	//请求首页数据
+		var nextnum = 0;
+		var main = angular.module('lottery',['ngResource']);
+		main.controller('main',['$scope','ajax','Timer',function($scope,ajax,Timer){
+			$scope.flag = true;
+			$scope.isDetail = false;
+			//导航切换
+			$scope.changeNav = function(index,flag){
+				if(flag == true){						//排序
+					var old = $scope.url.split('=');
+					old[old.length-1] = index;
+					$scope.url = old.join('=');
+				}else if(flag == 'page'){				//每一页
+					$scope.curPage = index+($scope.num-1)*10 + 1;
+					nextnum = $scope.curPage;
+					var old = $scope.url.split('?');
+					var _old = old[1].split('&'); 
+					_old[0] = 'page='+(index+1);
+					_old = _old.join('&');
+					old[1] = _old;
+					$scope.url = old.join('?');
+				}else if(flag == 'prev'){			//上一页
+					$scope.curPage--;
+					if($scope.curPage <= 0){
+						alert('当前已经是第一页');
+						$scope.curPage = 1;
+						return;
+					}else{
+						nextnum = $scope.curPage;
+						if($scope.curPage % 10 == 0){
+							$scope.num--;						
+						}
+						var old = $scope.url.split('?');
+						var _old = old[1].split('&'); 
+						__old = _old[0].split('=');
+						__old[1] = parseInt(__old[1]);
+						__old[1]--;
+						_old[0] = __old.join('=');
+						_old = _old.join('&');
+						old[1] = _old;
+						$scope.url = old.join('?');
+					}
+				}else if(flag == 'next'){			//下一页
+					if($scope.curPage >= $scope.pages.length){
+						alert('已经是最后一页了');
+						return;
+					}else{
+						$scope.flag = false;
+						$scope.curPage++;
+						nextnum = $scope.curPage;
+						if($scope.curPage % 10 == 1){
+							$scope.num++;
+						}
+						var old = $scope.url.split('?');
+						var _old = old[1].split('&'); 
+						__old = _old[0].split('=');
+						__old[1] = parseInt(__old[1]);
+						__old[1]++;
+						_old[0] = __old.join('=');
+						_old = _old.join('&');
+						old[1] = _old;
+						$scope.url = old.join('?');
+						
+					}
+				}else{									//每个彩种
+					$scope.url = 'http://www.caipiaoyjxy.com/api/planapi/search?page=1&size=10&type='+index+'&order=1';
+					$scope.curPage = 1;
+					nextnum = $scope.curPage;
+					$scope.isDetail = false;
+				}
+
+				//console.log($scope.url);
+
+				//页面需要的数据
+				ajax.getData($scope.url,function(data){
+					//console.log(data);
+					$scope.list1 = data;
+					//分页
+					var len = data.Count % 10 == 0 ? Math.floor(data.Count / 10) : Math.floor(data.Count / 10) + 1;
+					$scope.pages = [];
+					for(var i = 0; i < len; i++){
+						$scope.pages.push(i);
+					}
+					//排序、上一页、下一页、每个彩种
+					$scope.num = $scope.num || 1;
+				});
+			}
+
+			//默认设置
+			var search = location.search.substr(1).split('=')[1];
+			$(innerNav).eq(search-1).click();
+			if(search == 9){
+				search = 8;				//组六
+			}else if(search == 10){
+				search = 0;
+			}
+			$scope.changeNav(search);
+			if(search == 0){
+				var hash = location.hash.substr(1);
+				$scope.changeNav(hash,true);
+				$(sortNav).removeClass('active').parent().eq(hash-1).find('a').addClass('active');
+			}
+
+			var inter = null;
+
+			//首次加载开奖信息
+			Timer.getTime(function(time,term,num,flag){
+				$scope.term = term;	
+				$scope.number = num;			
+				if(flag){				//表示已经开奖
+					$scope.prvTerm = term-1;
+				}else{				//尚未开奖
+					$scope.prvTerm = term-2;
+					Timer.isGetData(function(prvTerm,number){
+			            $scope.prvTerm = prvTerm;
+						$scope.number = number;
+			        },1);
+				}
+				inter = setInterval(function(){
+					time--;
+					if(time == -1){
+						var _h = new Date().getHours();
+						 if(_h <= 9 && _h < 10){   								//9点到10点
+			                time = 3600;
+			            }else if(_h >= 9 && _h < 22){							//10点到22点
+			            	time = 600;
+			            }else if((_h >=22 && _h < 24)||(_h >=0 && _h < 2)){		//22点到凌晨2点
+			            	time = 300;
+			            }else{													//2点到9点
+			            	time = null;
+			            }
+			            ajax.getData('http://www.caipiaoyjxy.com/api/planapi/getopenresult',function(data){		//时间用完只是更新当前期数
+			            	$scope.term = data.prevPhase.split('-').join('').substr(2);
+			            });
+			            Timer.isGetData(function(prvTerm,number){	//请求号码
+			            	$scope.prvTerm = prvTerm;
+							$scope.number = number;
+			            },30000);
+					}else if(time == null){
+						clearInterval(inter);
+						$('.one,.two,.three,.four').html('-');
+					}
+					var _m = Math.floor(time / 60);
+					var _s = time % 60;
+					if(_m<10){
+						$('.one').html(0);
+						$('.two').html(_m);
+					}else{
+						$('.one').html(Math.floor(_m / 10));
+						$('.two').html(_m % 10);
+					}
+					if(_s<10){
+						$('.three').html(0);
+						$('.four').html(_s);
+					}else{
+						$('.three').html(Math.floor(_s / 10));
+						$('.four').html(_s % 10);
+					}
+				},1000);
+			});
+
+			//详情
+			$scope.showDetail = function(item){
+				$scope.isDetail = true;
+				ajax.getData('http://www.caipiaoyjxy.com/api/planapi/getplan?id='+item.PLID,function(data){
+					$scope.result = data.Data;
+					//console.log($scope.result);
+					$scope.result.CurrentResult.BetsNumber = $scope.result.CurrentResult.BetsNumber.split(' ');
+					$scope.result.CurrentResult.BetsNumber.sort();
+				}) 
+			}
+		}]).factory('ajax',['$resource',function($resource){
+			return {
+				getData:function(url,fn){
+					$resource(url).get({},function(data){	
+						fn(data);
+					});
+				}
+			}
+		}]).factory('Timer',['$resource','ajax',function($resource,ajax){
+			return {
+				getTime:function(fn){
+					ajax.getData('http://www.caipiaoyjxy.com/api/planapi/getopenresult',function(data){
+						var time = 0;
+						var _h = parseInt(data.data.split(' ')[1].split(':')[0]);	//小时
+			            var _m = parseInt(data.data.split(' ')[1].split(':')[1]);	//分钟
+			            var _s = parseInt(data.data.split(' ')[1].split(':')[2]);	//秒钟
+			            if(_h <= 9 && _h < 10){   								//9点到10点
+			                time = 3600 - (_m * 60  + _s);
+			            }else if(_h >= 9 && _h < 22){							//10点到22点
+			            	time = 600 - (_m % 10 * 60  + _s);			            	
+			            }else if((_h >=22 && _h < 24)||(_h >=0 && _h < 2)){		//22点到凌晨2点
+			            	time = 300 - (_m % 10 * 60  + _s);
+			            }else{													//2点到9点
+			            	time = null;
+			            }
+			            if(fn){
+			            	var term = parseInt(data.prevPhase.split('-').join('').substr(2));   //本期
+			            	var num =  data.phaseNumber;	//上期号码
+			            	if(!data.isGetData){			//没有拿到号码
+			            		num =  data._phaseNumber;
+			            		fn(time,term,num,false);
+			            	}else{							//已经拿到号码
+			            		fn(time,term,num,true);
+			            	}
+			            }else{
+			            	return time;
+			            }
+					})	
+				},
+				isGetData:function(fn,time){
+					var self = this;
+					var timeout = setTimeout(function(){
+						ajax.getData('http://www.caipiaoyjxy.com/api/planapi/getopenresult',function(data){
+			            	if(data.isGetData){
+			            		var prvTerm = parseInt(data.prevPhase.split('-').join('').substr(2)) - 1;
+			            		var number = data.phaseNumber;
+			            		fn(prvTerm,number);
+			            	}else{
+			            		self.isGetData(fn,10000);
+			            	}
+			            });
+					},time);
+				}
+			}
+		}]).filter('page',function(){
+			return function(input,num){
+						input = input || '';
+						var start = (num-1) *10;
+						var end = start + 10;
+						if(end > input.length){
+							end = input.length;
+						}
+						try{
+							return input.slice(start,end);
+						}catch(e){
+
+						}
+					}
+		});
+
+
+
 		var outerNav = ".LA-out-nav .LA-in-nav .LA-nav li a";
 		var innerNav = ".LA-out-content .LA-in-content .LA-in-main .LA-main-nav ul li a";
 		var sortNav = ".LA-out-content .LA-in-content .LA-in-main .LA-main-content ol li a";
 		var paginationNav = ".LA-out-content .LA-in-content .LA-in-main .LA-main-content .LA-main-pagination ul li a";
+
 		//外层导航
 		$(outerNav).on('click',function(evt){
 			var target = evt.target || evt.srcElement;
+			if($(target).attr('href') == '#'){
+				alert('敬请期待');
+				return;
+			}
 			$(target).addClass('active').parent().siblings().find('a').removeClass('active');
 		});
 		//内层导航
 		$(innerNav).on('click',function(evt){
 			$(evt.target).parent().addClass('active').siblings().removeClass('active');
+			$(sortNav).first().addClass('active').parent().siblings().find('a').removeClass('active');
 		});
 		//排序导航
 		$(sortNav).on('click',function(evt){
 			$(evt.target).addClass('active').parent().siblings().find('a').removeClass('active');
 		});
 		//翻页点击效果
-		$(paginationNav).on('click',function(evt){
+		$(paginationNav).live('click',function(evt){
 			if($(evt.target).parent()[0].tagName == 'SPAN'){
 				return;
 			}
 			$(evt.target).addClass('active').parent().siblings().find('a').removeClass('active');
 		});
 		//上一页与下一页
-		$('#prev').on('click',function(evt){
+		$('#prev').live('click',function(evt){
 			var orgin = $(".LA-main-pagination a.active");
+			if(nextnum % 10 == 0){
+				$(paginationNav).parent().removeClass('active').last().find('a').addClass('active');
+				return;
+			}
 			var prev = orgin.parent().prev()[0];
 			try{
 				if(prev.tagName && prev.tagName == 'LI'){
@@ -204,8 +440,14 @@
 				console.log(e);
 			}
 		});
-		$('#next').on('click',function(){
+		$('#next').live('click',function(){
 			var orgin = $(".LA-main-pagination a.active");
+			if(nextnum % 10 == 1){
+				$(paginationNav).parent().removeClass('active').first().find('a').addClass('active');	
+			}
+			if(nextnum == 2){
+				orgin = $('.LA-main-pagination a').eq(1);
+			}
 			var next = orgin.parent().next()[0];
 			try{
 				if($(next).prop('tagName') == 'LI'){
@@ -216,33 +458,66 @@
 			}			
 		});
 
-		//计时器秒,
-		var time = 2342;
-		if(time >=0 && time < 5940){
-			var inter = setInterval(function(){
-				var _m = Math.floor(time / 60);
-				var _s = time % 60;
-				if(_m<10){
-					$('.one').html(0);
-					$('.two').html(_m);
-				}else{
-					$('.one').html(Math.floor(_m / 10));
-					$('.two').html(_m % 10);
+		
+			//分享计划
+		   'use strict';
+			var _a = '';
+			var _b = '';
+			var _c = '';
+
+			for(var i = 0; i< $('#plans span').length; i++){
+				_a += $('#plans span')[i].innerHTML + ' ';
+			}
+
+			for(var i = 0; i < $('.LA-list-box li').length; i++){
+				_b += $('.LA-list-box li')[i].innerHTML+'\n';
+			}
+
+			for(var i = 0; i<$('.LA-main-detail ol li').length; i++){
+				_c += $($('.LA-main-detail ol li')[i]).text()+' ';
+			}
+			text = _a+'\n'+_b+_c;
+			
+			$('#share').on('click',function(evt){
+				$('#copy').val(text);
+				copy(evt);
+			});
+
+			function copy(e) {
+				var t = e.target || e.srcElement;
+				var inp = $('#copy')[0] || null;
+				if (inp && inp.select) {
+					inp.select();
+					try {
+						document.execCommand('copy');
+						alert('复制成功');
+					}
+					catch (err) {
+						alert('please press Ctrl/Cmd+C to copy');
+					} 
 				}
-				if(_s<10){
-					$('.three').html(0);
-					$('.four').html(_s);
-				}else{
-					$('.three').html(Math.floor(_s / 10));
-					$('.four').html(_s % 10);
-				}
-				if(time == 0){
-					clearInterval(inter);
-				}
-				time--;
-			},1000);
-		}
+			}
+	
+		var timer = null;
+		$('#plans').on('mouseenter',function(evt){
+			$('#plans span').css({'background':'none','color':'#7c7c7c'});
+			timer = setTimeout(function(){
+				$('#part-copy').show();
+			},500);
+			
+
+		}).on('mouseleave',function(evt){
+			clearTimeout(timer);
+			$('#part-copy').hide();
+			$('#plans span').css({'background':'none','color':'#7c7c7c'});
+		});
+		
+		$('#part-copy').on('click',function(evt){
+			$('#plans span').css({'background':'none','color':'#7c7c7c'});
+			$('#copy').val(_a);
+			copy(evt);
+		})
+
 	</script>
 </body>
 </html>
-
