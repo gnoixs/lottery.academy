@@ -30,7 +30,7 @@
 					<h2 class="LA-logo-cqssc">重庆时时彩</h2>
 					<div class="LA-lottery-info">
 						<h3 style="margin-top:8px;">第<strong ng-bind="+term+1"></strong>期</h3>
-						<h3>离投注截止还有</h3>
+						<h3>离开奖截止还有</h3>
 					</div>
 					<div class="LA-time">
 						<ol>
@@ -108,6 +108,7 @@
 							<li>有效期数：<span>{{result.UsableCount}}期</span></li>
 							<li>连中期数：<span>{{result.ConWinnerCount}}期</span></li>
 							<li>最大连中：<span>{{result.MaxConWinnerCount}}期</span></li>
+							<li>当前连中：<span>{{result.CurrentConWinnerCount}}期</span></li>
 							<li>人气：<span>{{result.ClickCount}}</span></li>
 						</ol>
 						<div class="LA-list-box">
@@ -122,7 +123,7 @@
 							<input type="button" id="part-copy" value="复制"/>
 						</div>
 						<textarea id="copy" value="你好" style="position:absolute;z-index: -2; left:-9999px;"></textarea>
-						<button id="share" data-copytarget="#copy">分享计划</button>
+						<button id="share" data-copytarget="#copy" style="position: absolute; left:0; right: 0; bottom:-40px;">分享计划</button>
 					</div>
 				</div>
 			</div>
@@ -153,10 +154,19 @@
 	<script type="text/javascript">
 	//请求首页数据
 		var nextnum = 0;
+		var text = '';
 		var main = angular.module('lottery',['ngResource']);
+		main.config(['$stateProvider','$urlRouterProvider',function($stateProvider,$urlRouterProvider){
+			// $stateProvider.state('pick', {					//选号
+			// 	url         : '/pick',
+			// 	templateUrl : 'templates/pick.html',
+			// 	controller  : 'pickCtrl'
+			// })
+		}]);
 		main.controller('main',['$scope','ajax','Timer',function($scope,ajax,Timer){
 			$scope.flag = true;
 			$scope.isDetail = false;
+			$scope.currentItem = null;
 			//导航切换
 			$scope.changeNav = function(index,flag){
 				if(flag == true){						//排序
@@ -267,6 +277,9 @@
 					Timer.isGetData(function(prvTerm,number){
 			            $scope.prvTerm = prvTerm;
 						$scope.number = number;
+						if($scope.isDetail == true){
+							$scope.showDetail($scope.currentItem);
+						}
 			        },1);
 				}
 				inter = setInterval(function(){
@@ -288,6 +301,9 @@
 			            Timer.isGetData(function(prvTerm,number){	//请求号码
 			            	$scope.prvTerm = prvTerm;
 							$scope.number = number;
+							if($scope.isDetail == true){
+								$scope.showDetail($scope.currentItem);
+							}
 			            },30000);
 					}else if(time == null){
 						clearInterval(inter);
@@ -313,9 +329,11 @@
 			});
 
 			//详情
-			$scope.showDetail = function(item){
+			$scope.showDetail = function(item){	
+				$scope.currentItem = item;		
 				$scope.isDetail = true;
 				ajax.getData('http://www.caipiaoyjxy.com/api/planapi/getplan?id='+item.PLID,function(data){
+					console.log(data);
 					$scope.result = data.Data;
 					//console.log($scope.result);
 					$scope.result.CurrentResult.BetsNumber = $scope.result.CurrentResult.BetsNumber.split(' ');
@@ -461,24 +479,27 @@
 		
 			//分享计划
 		   'use strict';
-			var _a = '';
-			var _b = '';
-			var _c = '';
-
-			for(var i = 0; i< $('#plans span').length; i++){
-				_a += $('#plans span')[i].innerHTML + ' ';
-			}
-
-			for(var i = 0; i < $('.LA-list-box li').length; i++){
-				_b += $('.LA-list-box li')[i].innerHTML+'\n';
-			}
-
-			for(var i = 0; i<$('.LA-main-detail ol li').length; i++){
-				_c += $($('.LA-main-detail ol li')[i]).text()+' ';
-			}
-			text = _a+'\n'+_b+_c;
 			
+			//全部复制
 			$('#share').on('click',function(evt){
+				var _a = '';
+				var _b = '';
+				var _c = '';
+
+				for(var i = 0; i< $('#plans span').length; i++){
+					_a += $('#plans span')[i].innerHTML + ' ';
+				}
+
+				for(var i = 0; i < $('.LA-list-box li').length; i++){
+					_b += $('.LA-list-box li')[i].innerHTML+'\n';
+				}
+
+				for(var i = 0; i<$('.LA-main-detail ol li').length; i++){
+					_c += $($('.LA-main-detail ol li')[i]).text()+' ';
+				}
+				text = _a+'\n'+_b+_c;
+
+
 				$('#copy').val(text);
 				copy(evt);
 			});
@@ -500,7 +521,7 @@
 	
 		var timer = null;
 		$('#plans').on('mouseenter',function(evt){
-			$('#plans span').css({'background':'none','color':'#7c7c7c'});
+			$('#plans span').css({'background':'none','color':'#000'});
 			timer = setTimeout(function(){
 				$('#part-copy').show();
 			},500);
@@ -509,11 +530,15 @@
 		}).on('mouseleave',function(evt){
 			clearTimeout(timer);
 			$('#part-copy').hide();
-			$('#plans span').css({'background':'none','color':'#7c7c7c'});
+			$('#plans span').css({'background':'none','color':'#000'});
 		});
-		
+		//部分复制
 		$('#part-copy').on('click',function(evt){
-			$('#plans span').css({'background':'none','color':'#7c7c7c'});
+			var _a = '';
+			for(var i = 0; i< $('#plans span').length; i++){
+				_a += $('#plans span')[i].innerHTML + ' ';
+			}
+			$('#plans span').css({'background':'none','color':'#000'});
 			$('#copy').val(_a);
 			copy(evt);
 		})
