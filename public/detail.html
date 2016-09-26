@@ -58,19 +58,19 @@
 					<!--inner navgation-->
 					<div class="LA-main-nav">
 						<ul>
-							<li class="radius active"><a href="#" ng-click="changeNav(1)">定位胆</a></li>
+							<li class="radius"><a href="#" ng-click="changeNav(1)">定位胆</a></li>
 							<li><a href="#" ng-click='changeNav(2)'>二星单式</a></li>
 							<li><a href="#" ng-click='changeNav(3)'>二星复式</a></li>
 							<li><a href="#" ng-click='changeNav(4)'>三星单式</a></li>
 							<li><a href="#" ng-click='changeNav(5)'>三星复式</a></li>
 							<li><a href="#" ng-click='changeNav(6)'>四星复式</a></li>
 							<li><a href="#" ng-click='changeNav(7)'>五星复式</a></li>
-							<li><a href="#" ng-click='changeNav(9)'>组三</a></li>
-							<li><a href="#" ng-click='changeNav(8)'>组六</a></li>
-							<li><a href="#" ng-click='changeNav(0)'>全部计划</a></li>
+							<li><a href="#" ng-click='changeNav(8)'>组三</a></li>
+							<li><a href="#" ng-click='changeNav(9)'>组六</a></li>
+							<li><a href="#" ng-click='changeNav(10)'>全部计划</a></li>
 						</ul>
 					</div>
-					<!--列表-->
+					<!--列表
 					<div class="LA-main-content">
 						<ol>
 							<li ng-click='changeNav(1,true)'><a href="#" class="active">计划连中期数排序</a></li>
@@ -97,9 +97,9 @@
 							</ul>
 						</div>
 					</div>
-
+					-->
 					
-					<!--详情页
+					<!--详情页-->
 					<div class="LA-main-detail" ng-class="{show:isDetail}">
 						<h2>{{result.Name}}{{result.ModeValue}}</h2>
 						<ol>
@@ -125,7 +125,6 @@
 						<textarea id="copy" value="你好" style="position:absolute;z-index: -2; left:-9999px;"></textarea>
 						<button id="share" data-copytarget="#copy" style="position: absolute; left:0; right: 0; bottom:-40px;">分享计划</button>
 					</div>
-					-->
 				</div>
 			</div>
 		</div>
@@ -156,108 +155,41 @@
 	//请求首页数据
 		var nextnum = 0;
 		var text = '';
+		var search = location.search.substr(1);
+		search = search.split('&');
+		var id = search[0].split('=')[1];
+		var active = search[1].split('=')[1];
+
 		var main = angular.module('lottery',['ngResource']);
 		main.controller('main',['$scope','ajax','Timer',function($scope,ajax,Timer){
 			$scope.flag = true;
-			$scope.isDetail = false;
-			$scope.currentItem = null;
-			$scope.type = 1;
+			$scope.isDetail = true;
+			$scope.currentItem = id;
 			//导航切换
-			$scope.changeNav = function(index,flag){
-				if(flag == true){						//排序
-					var old = $scope.url.split('=');
-					old[old.length-1] = index;
-					$scope.url = old.join('=');
-				}else if(flag == 'page'){				//每一页
-					$scope.curPage = index+($scope.num-1)*10 + 1;
-					nextnum = $scope.curPage;
-					var old = $scope.url.split('?');
-					var _old = old[1].split('&'); 
-					_old[0] = 'page='+(index+1);
-					_old = _old.join('&');
-					old[1] = _old;
-					$scope.url = old.join('?');
-				}else if(flag == 'prev'){			//上一页
-					$scope.curPage--;
-					if($scope.curPage <= 0){
-						alert('当前已经是第一页');
-						$scope.curPage = 1;
-						return;
-					}else{
-						nextnum = $scope.curPage;
-						if($scope.curPage % 10 == 0){
-							$scope.num--;						
-						}
-						var old = $scope.url.split('?');
-						var _old = old[1].split('&'); 
-						__old = _old[0].split('=');
-						__old[1] = parseInt(__old[1]);
-						__old[1]--;
-						_old[0] = __old.join('=');
-						_old = _old.join('&');
-						old[1] = _old;
-						$scope.url = old.join('?');
-					}
-				}else if(flag == 'next'){			//下一页
-					if($scope.curPage >= $scope.pages.length){
-						alert('已经是最后一页了');
-						return;
-					}else{
-						$scope.flag = false;
-						$scope.curPage++;
-						nextnum = $scope.curPage;
-						if($scope.curPage % 10 == 1){
-							$scope.num++;
-						}
-						var old = $scope.url.split('?');
-						var _old = old[1].split('&'); 
-						__old = _old[0].split('=');
-						__old[1] = parseInt(__old[1]);
-						__old[1]++;
-						_old[0] = __old.join('=');
-						_old = _old.join('&');
-						old[1] = _old;
-						$scope.url = old.join('?');
-						
-					}
-				}else{									//每个彩种
-					$scope.url = 'http://www.caipiaoyjxy.com/api/planapi/search?page=1&size=10&type='+index+'&order=1';
-					$scope.curPage = 1;
-					nextnum = $scope.curPage;
-					$scope.isDetail = false;
-					$scope.type = index;
+			$scope.changeNav = function(index){
+				console.log(index);
+				//if(index == 9){
+					//index = 8;
+				//}
+				if(index == 10){
+					location.href = '/cqssc.html?type='+index+'#1';
+				}else{
+					location.href = '/cqssc.html?type='+index;
 				}
-				//console.log($scope.url);
-				//页面需要的数据
-				ajax.getData($scope.url,function(data){
-					//console.log(data);
-					$scope.list1 = data;
-					//分页
-					var len = data.Count % 10 == 0 ? Math.floor(data.Count / 10) : Math.floor(data.Count / 10) + 1;
-					$scope.pages = [];
-					for(var i = 0; i < len; i++){
-						$scope.pages.push(i);
-					}
-					//排序、上一页、下一页、每个彩种
-					$scope.num = $scope.num || 1;
-				});
+				
 			}
+
 			//默认设置
-			var search = location.search.substr(1).split('=')[1];
-			$(innerNav).eq(search-1).click();
-			if(search == 9){
-				search = 8;				//组六
-			}else if(search == 8){
-				search = 9;				//组三
-			}else if(search == 10){
-				search = 0;
+			//angular.element(innerNav).parent().removeClass('active');
+			if(active == 8){
+				active = 9;
+			}else if(active == 9){
+				active = 8;
 			}
-			$scope.changeNav(search);
-			if(search == 0){
-				var hash = location.hash.substr(1);
-				$scope.changeNav(hash,true);
-				$(sortNav).removeClass('active').parent().eq(hash-1).find('a').addClass('active');
-			}
+			angular.element(innerNav).parent().eq(active-1).addClass('active');
+
+			
+
 			var inter = null;
 			//首次加载开奖信息
 			Timer.getTime(function(time,term,num,flag){
@@ -321,23 +253,22 @@
 				},1000);
 			});
 			//详情
-			$scope.showDetail = function(item,flag){	
-				location.href = '/detail.html?id='+item.PLID+'&type='+$scope.type;
-				// $scope.currentItem = item;		
-				// $scope.isDetail = true;
-				// ajax.getData('http://www.caipiaoyjxy.com/api/planapi/getplan?id='+item.PLID,function(data){
-				// 	console.log(data);
-				// 	$scope.result = data.Data;
-				// 	//console.log($scope.result);
-				// 	$scope.result.CurrentResult.BetsNumber = $scope.result.CurrentResult.BetsNumber.split(' ');
-				// 	$scope.result.CurrentResult.BetsNumber.sort();
-				// 	if(flag){
-				// 		setTimeout(function(){
-				// 		$('.LA-list-box')[0].scrollTop = $('.LA-list-box ul').height();
-				// 		},10);
-				// 	}
-				// }) 
+			$scope.showDetail = function(id,flag){	
+				//$scope.currentItem = item;		
+				//$scope.isDetail = true;
+				ajax.getData('http://www.caipiaoyjxy.com/api/planapi/getplan?id='+id,function(data){
+					console.log(data);
+					$scope.result = data.Data;
+					$scope.result.CurrentResult.BetsNumber = $scope.result.CurrentResult.BetsNumber.split(' ');
+					$scope.result.CurrentResult.BetsNumber.sort();
+					if(flag){
+						setTimeout(function(){
+						$('.LA-list-box')[0].scrollTop = $('.LA-list-box ul').height();
+						},10);
+					}
+				}) 
 			}
+			$scope.showDetail(id);
 		}]).factory('ajax',['$resource',function($resource){
 			return {
 				getData:function(url,fn){
@@ -419,56 +350,61 @@
 			}
 			$(target).addClass('active').parent().siblings().find('a').removeClass('active');
 		});
+
+
+
+
+
 		//内层导航
-		$(innerNav).on('click',function(evt){
-			$(evt.target).parent().addClass('active').siblings().removeClass('active');
-			$(sortNav).first().addClass('active').parent().siblings().find('a').removeClass('active');
-		});
+		// $(innerNav).on('click',function(evt){
+		// 	$(evt.target).parent().addClass('active').siblings().removeClass('active');
+		// 	$(sortNav).first().addClass('active').parent().siblings().find('a').removeClass('active');
+		// });
 		//排序导航
-		$(sortNav).on('click',function(evt){
-			$(evt.target).addClass('active').parent().siblings().find('a').removeClass('active');
-		});
+		// $(sortNav).on('click',function(evt){
+		// 	$(evt.target).addClass('active').parent().siblings().find('a').removeClass('active');
+		// });
 		//翻页点击效果
-		$(paginationNav).live('click',function(evt){
-			if($(evt.target).parent()[0].tagName == 'SPAN'){
-				return;
-			}
-			$(evt.target).addClass('active').parent().siblings().find('a').removeClass('active');
-		});
+		// $(paginationNav).live('click',function(evt){
+		// 	if($(evt.target).parent()[0].tagName == 'SPAN'){
+		// 		return;
+		// 	}
+		// 	$(evt.target).addClass('active').parent().siblings().find('a').removeClass('active');
+		// });
 		//上一页与下一页
-		$('#prev').live('click',function(evt){
-			var orgin = $(".LA-main-pagination a.active");
-			if(nextnum % 10 == 0){
-				$(paginationNav).parent().removeClass('active').last().find('a').addClass('active');
-				return;
-			}
-			var prev = orgin.parent().prev()[0];
-			try{
-				if(prev.tagName && prev.tagName == 'LI'){
-					orgin.removeClass('active').parent().prev().children('a').addClass('active');
-				}
-			}catch(e){
-				console.log(e);
-			}
-		});
-		$('#next').live('click',function(){
-			var orgin = $(".LA-main-pagination a.active");
-			if(nextnum % 10 == 1){
-				$(paginationNav).parent().removeClass('active').first().find('a').addClass('active');	
-			}
-			if(nextnum == 2){
-				orgin = $('.LA-main-pagination a').eq(1);
-			}
-			var next = orgin.parent().next()[0];
-			try{
-				if($(next).prop('tagName') == 'LI'){
-					orgin.removeClass('active').parent().next().children('a').addClass('active');
-				}
-			}catch(e){
-				console.log(e);
-			}			
-		});
-	/*	
+		// $('#prev').live('click',function(evt){
+		// 	var orgin = $(".LA-main-pagination a.active");
+		// 	if(nextnum % 10 == 0){
+		// 		$(paginationNav).parent().removeClass('active').last().find('a').addClass('active');
+		// 		return;
+		// 	}
+		// 	var prev = orgin.parent().prev()[0];
+		// 	try{
+		// 		if(prev.tagName && prev.tagName == 'LI'){
+		// 			orgin.removeClass('active').parent().prev().children('a').addClass('active');
+		// 		}
+		// 	}catch(e){
+		// 		console.log(e);
+		// 	}
+		// });
+		// $('#next').live('click',function(){
+		// 	var orgin = $(".LA-main-pagination a.active");
+		// 	if(nextnum % 10 == 1){
+		// 		$(paginationNav).parent().removeClass('active').first().find('a').addClass('active');	
+		// 	}
+		// 	if(nextnum == 2){
+		// 		orgin = $('.LA-main-pagination a').eq(1);
+		// 	}
+		// 	var next = orgin.parent().next()[0];
+		// 	try{
+		// 		if($(next).prop('tagName') == 'LI'){
+		// 			orgin.removeClass('active').parent().next().children('a').addClass('active');
+		// 		}
+		// 	}catch(e){
+		// 		console.log(e);
+		// 	}			
+		// });
+		
 			//分享计划
 		   'use strict';
 			
@@ -528,7 +464,7 @@
 			copy(evt);
 		});
 
-	*/	
+		
 	</script>
 </body>
 </html>
