@@ -42,7 +42,7 @@
 					</div>
 					<div class="LA-lottery-current" style="left:515px;">
 						<h3>第<span ng-bind="+prvTerm+1"></span>期</h3>
-						<h3><a href="http://data.shishicai.cn/cqssc/haoma/" style="color:#acb7ee;" target="_blank" class="L-history">开奖号码&gt;</a></h3>
+						<h3><a href="http://data.shishicai.cn/cqssc/haoma/" style="color:#acb7ee;" target="_blank">开奖号码&gt;</a></h3>
 					</div>
 					<ul>
 						<li ng-bind="number.substr(0,1)"></li>
@@ -51,7 +51,7 @@
 						<li ng-bind="number.substr(3,1)"></li>
 						<li ng-bind="number.substr(4,1)"></li>
 					</ul>
-					<h4><a href="http://data.shishicai.cn/cqssc/haoma/" style="color:white;" target="_blank" class="L-history">历史开奖</a></h4>
+					<h4><a href="http://data.shishicai.cn/cqssc/haoma/" style="color:white;" target="_blank">历史开奖</a></h4>
 				</div>
 			<!--内容展示区-->	
 				<div class="LA-in-main">
@@ -137,15 +137,7 @@
 	</div>
 	<!--画布-->
 	<canvas id="canv" width="733" height="1070"></canvas>
-	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-	  ga('create', 'UA-72134425-4', 'auto');
-	  ga('send', 'pageview');
-	</script>
+	
 	<script type="text/javascript" src='./libs/jquery/jquery.min.js'></script>
 	<script type="text/javascript" src='./libs/angular/angular.js'></script>
 	<script type="text/javascript" src='./libs/angular-resource/angular-resource.js'></script>
@@ -356,17 +348,18 @@
 				alert('敬请期待');
 				return;
 			}
-			ga('send', 'event', '导航('+$(target).html()+')', 'click(点击)');
 			$(target).addClass('active').parent().siblings().find('a').removeClass('active');
 		});
 
 
 
 
+
 		//内层导航
-		$(innerNav).on('click',function(evt){
-			ga('send', 'event', '彩种('+$(evt.target).html()+')', 'click(点击)');
-		});
+		// $(innerNav).on('click',function(evt){
+		// 	$(evt.target).parent().addClass('active').siblings().removeClass('active');
+		// 	$(sortNav).first().addClass('active').parent().siblings().find('a').removeClass('active');
+		// });
 		//排序导航
 		// $(sortNav).on('click',function(evt){
 		// 	$(evt.target).addClass('active').parent().siblings().find('a').removeClass('active');
@@ -471,15 +464,7 @@
 			copy(evt);
 		});
 
-		//ga-logo
-		$('.LA-logo').on('click',function(evt){
-			ga('send', 'event', 'logo', 'click(点击)');
-		});
-
-		//历史计划
-		$('.L-history').on('click',function(evt){
-			ga('send', 'event', '历史('+$(evt.target).html()+')', 'click(点击)');
-		})
+		
 	</script>
 </body>
 </html>
