@@ -29,7 +29,7 @@
 				<div class="LA-top-nav">
 					<h2 class="LA-logo-cqssc">重庆时时彩</h2>
 					<div class="LA-lottery-info">
-						<h3 style="margin-top:8px;">第<strong ng-bind="+term+1"></strong>期</h3>
+						<h3 style="margin-top:8px;">第<strong ng-bind="(+term+1).toString().substr(0,6)+'-'+(+term+1).toString().substr(6,9)"></strong>期</h3>
 						<h3>离开奖截止还有</h3>
 					</div>
 					<div class="LA-time">
@@ -41,7 +41,7 @@
 						</ol>
 					</div>
 					<div class="LA-lottery-current" style="left:515px;">
-						<h3>第<span ng-bind="+prvTerm+1"></span>期</h3>
+						<h3>第<span ng-bind="(prvTerm+1).toString().substr(0,6)+'-'+(prvTerm+1).toString().substr(6,9)"></span>期</h3>
 						<h3><a href="http://data.shishicai.cn/cqssc/haoma/" style="color:#acb7ee;" target="_blank" class="L-history">开奖号码&gt;</a></h3>
 					</div>
 					<ul>
@@ -132,7 +132,8 @@
 		<!--页脚部分-->
 		<div class="LA-out-footer">
 			<div class="LA-in-footer">
-				<p>Copyright © 2016 彩票研究学院. All Rights Reserved</p>
+				<p style="line-height: 45px;">Copyright © 2016 彩票研究学院. All Rights Reserved</p>
+				<a href="mailto:caipiaoyjxy@gmail.com" target="_blank" style="display: block; width:100%; text-align: center; left:0; bottom:6px;position: absolute; color:#ffffff; font-size:12px; ">联系我们</a>
 			</div>
 		</div>
 	</div>
